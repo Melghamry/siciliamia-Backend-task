@@ -8,7 +8,7 @@ const track = require('../models/track');
 const express = require('express');
 const router = express.Router();
 
-router.post('/',upload.single('track') , async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         
         // get user info -store in DB
