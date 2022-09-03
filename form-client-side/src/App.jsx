@@ -6,7 +6,7 @@ import { Validate } from "./context/Validate";
 
 const App = () => {
   const [info, setinfo] = useState({name:'',country:'',email:'',ratings:[]})
-  const [validate,setvalidate]=useState(false)
+  const [validate,setvalidate]=useState(true)
   return (
     <Validate.Provider value={{validate,setvalidate}}>
     <Survey.Provider value={{info,setinfo}}>

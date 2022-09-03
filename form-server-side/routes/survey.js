@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const cloudinary = require('cloudinary').v2;
-const multer= require('multer');
 const genre = require('../models/genre');
 const ratings = require('../models/ratings');
 const user = require('../models/user');
@@ -10,28 +8,38 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     try {
-        
+         console.log(req.body);
         // get user info -store in DB
         const { name, country, email, ratings:trackRates } = req.body;
-        let newUser = await user.create({ name, country, email });
+        const newUser = await user.create({ name, country, email });
         console.log(newUser);
         let newServey = { user: newUser._id }
         // get ratings from
-        let storedRatings = await ratings.insertMany(trackRates.map(
+        const storedRatings = await ratings.create(trackRates.map(
             trackRate => {
+                const { ratings } = trackRate;
+                console.log(ratings)
                 return {
-                    comment: trackRate.comment
-                }
-            }
-        ));
-        let sample = await cloudinary.uploader.upload(req.send())
-
-
-
+                    comment: trackRate.comment,
+                    genre: trackRate.genre,
+                    ratings: [{
+                        // dummy data not real data 
+                    
+                        trackid:' ratings.trackid' ,
+                        rating: 'ratings.rating',
+                        genre: 'ratings.genre',
+        }]
+                // remains the validation on "not-seleceted" 
+             }
+         }
+          ));
 
         
+
+        res.status(201).json('Data added successfully!')
     } catch (err) {
         res.status(500).send('Cannot post survey');
+        console.log(err)
     }
 
 });

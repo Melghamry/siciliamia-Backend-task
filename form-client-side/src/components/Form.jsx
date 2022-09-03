@@ -11,9 +11,9 @@ export const Form = () => {
   const [sent,setsent]=useState('notsent')
   const handlesubmit = (event) => {
     event.preventDefault();
-
-    axios
-      .post("http://localhost:4000/survey", {
+    // axios
+    return axios
+      .post("http://localhost:3008/api/survey", {
         name: info.name,
         country: info.country,
         email: info.email,
@@ -32,7 +32,7 @@ export const Form = () => {
       className="flex justify-center w-screen h-screen p-10 text-txt "
     >
       <form
-        onSubmit={handlesubmit}
+        // onSubmit={handlesubmit}
         className="h-full p-6 overflow-auto rounded-lg lg:w-3/5 bg-pwgreen scroll-smooth scrollbar sm:w-screen "
       >
         <h1 className="block mb-5 text-2xl font-bold tracking-wide">
@@ -53,8 +53,9 @@ export const Form = () => {
       <div className="flex items-center gap-10">
         <input
           onClick={(e) => {
-            setvalidate(true);
-            console.log(info);
+            // setvalidate(true);
+            // console.log(info);
+              handlesubmit(e)
           }}
           type="submit"
           className="h-12 px-4 py-2 font-semibold bg-transparent border rounded w-28 hover:bg-button text-txt hover:text-white border-txt hover:border-transparent hover:cursor-pointer"
