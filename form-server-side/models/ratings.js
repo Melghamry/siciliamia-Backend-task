@@ -5,17 +5,21 @@ const ratingSchema = new mongoose.Schema({
         
     },
     genre: {
-        type:String,
+        type: String,
+        
       
         
     },
+    
     ratings: [{
         genre: {
-            type: String,
+            type:String,
+            
             
         },
         trackid: {
-            type:String,
+            type: String,
+            
             
         },
         rating: {
