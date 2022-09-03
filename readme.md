@@ -12,3 +12,7 @@ changing local host for post submission
 #   remaining 
 - Get request from server for report
 - validation on "not selected" field of request
+# update : 
+all is done  but remaining design of react code for final reoprt 
+and I didin't collaborate with React. 
+# thanks alot !
