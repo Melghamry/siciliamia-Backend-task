@@ -10,8 +10,7 @@ changing local host for post submission
 - create just Post request for sending name, country,rating,email
 - configure cors and preflight error with server
 #   remaining 
-- Get request from server for report
-- validation on "not selected" field of request
+-   storing sample audii in database
 # update : 
 all is done  but remaining design of react code for final reoprt 
 and I didin't collaborate with React. 
